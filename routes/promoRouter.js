@@ -12,33 +12,33 @@ promoRouter.route('/')
     next();
 })
 .get((req,res,next) => {
-    res.end('Will send all the dishes to you!');
+    res.end('Will send all the promos to you!');
 })
 .post((req, res, next) => {
-    res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.description);
+    res.end('Will add the promo: ' + req.body.name + ' with details: ' + req.body.description);
 })
 .put((req, res, next) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /dishes');
+    res.end('PUT operation not supported on /promotions');
 })
 .delete((req, res, next) => {
-    res.end('Deleting all dishes');
+    res.end('Deleting all promos');
 });
 
 promoRouter.route('/:promoId')
 .get((req, res, next) => {
-  res.end(`Will send dish ${req.params.dishId} to you!`);
+  res.end(`Will send promos ${req.params.promoId} to you!`);
 })
 .post((req, res, next) => {
   res.statusCode = 403;
-  res.end(`POST operation not supported for /dishes/${req.params.dishId}`);
+  res.end(`POST operation not supported for /promotions/${req.params.promoId}`);
 })
 .put((req, res, next) => {
-  res.write(`Updating dish ${req.params.dishId}...\n`);
-  res.end(`Will update the dish: ${req.body.name} with details: ${req.body.description}`);
+  res.write(`Updating promo ${req.params.promoId}...\n`);
+  res.end(`Will update the promo: ${req.body.name} with details: ${req.body.description}`);
 })
 .delete((req, res, next) => {
-  res.end(`Will delete dish: ${req.params.dishId}`);
+  res.end(`Will delete promo: ${req.params.promoId}`);
 });
 
 module.exports = promoRouter;
